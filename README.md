@@ -56,9 +56,11 @@ AI のスキル(手順書)を介して対応を標準化すれば、担当交代
 |---|---|
 | `faq/index.md` | カテゴリ一覧とFAQ ID規則。Claude はまずここだけを読む |
 | `faq/powerbi/` ほか | カテゴリ別のFAQ本体(Markdown) |
+| `faq/answer-style.md` | 回答文面のスタイルガイド(構成・定型文・トーン)。担当者間の文体を統一 |
 | `.claude/skills/inquiry-assistant/` | 問い合わせ → FAQ検索 → 回答案作成の手順書 |
 | `.claude/skills/faq-updater/` | クローズ報告 → FAQ 追加/更新 → PR 作成の手順書 |
 | `.claude/skills/faq-reviewer/` | FAQ定期棚卸し(Microsoft Learn現行記述との突き合わせ)の手順書 |
+| `.claude/skills/faq-stats/` | 月次サマリー / 効果測定(git履歴からFAQ活動を集計)の手順書 |
 
 ## 設計上のポイント
 
