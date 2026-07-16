@@ -57,6 +57,7 @@ AI のスキル(手順書)を介して対応を標準化すれば、担当交代
 | `faq/index.md` | カテゴリ一覧とFAQ ID規則。Claude はまずここだけを読む |
 | `faq/powerbi/` ほか | カテゴリ別のFAQ本体(Markdown) |
 | `faq/answer-style.md` | 回答文面のスタイルガイド(構成・定型文・トーン)。担当者間の文体を統一 |
+| `known-issues.md` | 既知障害・一時情報の速報メモ。FAQより先に参照され、該当すれば個別調査せず即回答。ここだけPR不要・直接コミット可 |
 | `.claude/skills/inquiry-assistant/` | 問い合わせ → FAQ検索 → 回答案作成の手順書 |
 | `.claude/skills/faq-updater/` | クローズ報告 → FAQ 追加/更新 → PR 作成の手順書 |
 | `.claude/skills/faq-reviewer/` | FAQ定期棚卸し(Microsoft Learn現行記述との突き合わせ)の手順書 |
@@ -127,11 +128,26 @@ Claude Code に依頼する。
 
 ## 将来的な構想(PoC の範囲外)
 
+### 一般社員向けへの展開
+
 FAQ が十分育ったら、一般社員向けへの展開も考えられる。
 
 ```text
 GitHub Enterprise → GitHub Actions → SharePoint → Copilot Studio(社内Bot)
 ```
+
+### 棚卸しの定期自動実行
+
+現状の棚卸し(faq-reviewer)は「月1回、担当者が Claude Code に『FAQ棚卸しして』と頼む」手動運用。
+これを自動化する場合の選択肢:
+
+| 方式 | 費用 | 備考 |
+|---|---|---|
+| GitHub Actions の月次 cron + claude-code-action | Actions は Public リポジトリ無料(Private も月2,000分まで無料)。Claude 利用分は API 従量課金、または Pro/Max サブスクのトークン連携(`claude setup-token`)で追加費用なし | 会社展開時は GitHub Enterprise の Actions に載せる |
+| claude.ai のクラウドセッション + Routine(定期実行) | サブスク内で消化。設定ファイル・APIキー不要 | 「毎月1日に棚卸しを実行してPRを作成」を Routine として登録するだけ |
+
+どちらの場合も faq-reviewer スキルをそのまま呼ぶだけでよく、仕組み側の変更は不要。
+**PoC では手動運用とする**(自動化は仕組みが定着してから)。
 
 ただし PoC では保守担当向け支援に限定する。
 
