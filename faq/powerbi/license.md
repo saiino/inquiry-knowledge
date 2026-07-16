@@ -7,6 +7,7 @@ Pro / PPU / Fabric容量などライセンスに関するFAQ。
 ## FAQ-PBI-LIC-001: レポートを開くと「Pro ライセンスが必要です」と表示される
 
 - 登録日: 2026-07-16 / 更新日: 2026-07-16
+- 種別: Microsoft仕様 / 最終確認日: 2026-07-16
 - タグ: `Pro` `無料ライセンス` `容量`
 - ステータス: サンプル(動作確認用。実案件のFAQ登録後に削除してよい)
 
@@ -30,3 +31,4 @@ Pro / PPU / Fabric容量などライセンスに関するFAQ。
 ### 参考リンク
 
 - [Power BI のライセンスの種類 - Microsoft Learn](https://learn.microsoft.com/ja-jp/power-bi/fundamentals/service-features-license-type)
+- [Microsoft Fabric のライセンス - Microsoft Learn](https://learn.microsoft.com/ja-jp/fabric/enterprise/licenses)(F64未満はPro必須、F64以上でFree閲覧可の根拠)

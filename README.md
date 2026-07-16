@@ -58,6 +58,7 @@ AI のスキル(手順書)を介して対応を標準化すれば、担当交代
 | `faq/powerbi/` ほか | カテゴリ別のFAQ本体(Markdown) |
 | `.claude/skills/inquiry-assistant/` | 問い合わせ → FAQ検索 → 回答案作成の手順書 |
 | `.claude/skills/faq-updater/` | クローズ報告 → FAQ 追加/更新 → PR 作成の手順書 |
+| `.claude/skills/faq-reviewer/` | FAQ定期棚卸し(Microsoft Learn現行記述との突き合わせ)の手順書 |
 
 ## 設計上のポイント
 
@@ -102,6 +103,16 @@ Claude Code に問い合わせ内容を貼り付ける。
 > さっきの問い合わせクローズしました。原因はアプリの対象ユーザー未設定で、対象ユーザー追加+アプリ再発行で解決。
 
 → FAQ 更新 PR が作られるので、レビューして merge する。
+
+### FAQ の定期棚卸し(月1回目安)
+
+Claude Code に依頼する。
+
+> FAQ棚卸しして
+
+→ `種別: Microsoft仕様` のFAQ(最終確認日が古い順に5件まで)を Microsoft Learn の現行記述と突き合わせ、一致なら最終確認日を更新、不一致なら**Learn原文の引用つき**で修正PRを作る。`種別: 社内運用` のFAQは照合先の一次情報がないため対象外(社内ルールの変更は人間がFAQを直す)。
+
+ライセンス条件など Microsoft 側の仕様は変わるため、FAQ が「登録時は正しかったが今は違う」状態になるのを防ぐ仕組み。ここでも merge 判断は人間が行う。
 
 ## 将来的な構想(PoC の範囲外)
 
