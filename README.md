@@ -62,6 +62,8 @@ AI のスキル(手順書)を介して対応を標準化すれば、担当交代
 | `.claude/skills/faq-updater/` | クローズ報告 → FAQ 追加/更新 → PR 作成の手順書 |
 | `.claude/skills/faq-reviewer/` | FAQ定期棚卸し(Microsoft Learn現行記述との突き合わせ)の手順書 |
 | `.claude/skills/faq-stats/` | 月次サマリー / 効果測定(git履歴からFAQ活動を集計)の手順書 |
+| `.claude/skills/onboarding/` | 新規参画者向けの対話型オンボーディング(説明→練習→安全ルール) |
+| `docs/design-principles.md` | 設計思想。各ルールの「なぜ」を記録。変更提案の前に必ず読む |
 
 ## 設計上のポイント
 
@@ -142,6 +144,10 @@ Claude Code に依頼する。
 3. `.claude/settings.json` と `CLAUDE.md` を勝手に消さない・緩めない(変更したい場合はPRでチーム合意を取る)
 
 なお、コミットして push 済みの内容は、万一ローカルで事故が起きてもクローンし直せば復元できる。**こまめな push が最後の保険。**
+
+### 新しくチームに入った人へ
+
+クローンしたら Claude Code に「**オンボーディングして**」と言えば、仕組みの説明・練習・安全ルールの確認を対話形式で受けられる(30分目安)。ルールの理由が気になったら「なぜ◯◯なの?」と聞けば [docs/design-principles.md](docs/design-principles.md) をもとに答えてくれる。人間の引き継ぎ説明会は不要。
 
 ## 将来的な構想(PoC の範囲外)
 
